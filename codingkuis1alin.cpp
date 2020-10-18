@@ -2,7 +2,8 @@
 using namespace std;
 #define EPSILON 0.0001
 
-// Kelas Matrix untuk kuis 1 Aljabar Linear
+// Kelas Matrix untuk kuis 1 Aljabar Linear by zydhanlinnar11
+// Current BUG : Bisa aja muncul invers meskipun determinan 0
 class Matrix {
 private:
     int baris, kolom;
@@ -108,24 +109,6 @@ public:
             return;
         }
 
-        // for(int i=0; i<kolom; i++) {
-        //     int satuutama = carisatuutama(i);
-        //     if(satuutama > -1) {
-        //         if(satuutama != i) 
-        //             tukarbaris(i, satuutama), satuutama = i;
-        //         for(int j=i; j<baris; j++) {
-        //             if(j == satuutama) {
-        //                 if(matrix[j][i] != 1) {
-        //                     kalibaris(j, 1.0 / matrix[j][i]);
-        //                 }
-        //             } else {
-        //                 if(matrix[j][i] != 0.0)
-        //                     kalidantambahbaris(j, satuutama, -matrix[j][i] / matrix[satuutama][i]);
-        //             }
-        //         }
-        //     }
-        // }
-
         for(int i=0; i<baris; i++) {
             int satuutamaasli = carisatuutama(i);
             int satuutamatmp = satuutamaasli;
@@ -155,17 +138,6 @@ public:
             cout<<"Operasi Jordan sudah dilakukan.\n";
             return;
         }
-
-        // for(int i=kolom - 1; i >= 0; i--) {
-        //     int j = i - 1;
-        //     if(j >= baris)
-        //         j = baris - 2;
-        //     int satuutama = carisatuutama(i);
-        //     for(; j >= 0; j--) {
-        //         if(satuutama != -1)
-        //             kalidantambahbaris(j, satuutama, -matrix[j][i] / matrix[satuutama][i]);
-        //     }
-        // }
 
         for(int i=baris - 1; i > 0; i--) {
             int satuutama = carisatuutama(i);
